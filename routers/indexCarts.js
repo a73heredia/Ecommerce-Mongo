@@ -1,16 +1,11 @@
 import { Router } from 'express';
-import CartsController from '../controllers/carts.js';
+
+import routerApiCarts from './api/indexCarts.js';
+import routerViewsCarts from './views/indexCarts.js'
 
 const routerCarts = Router();
 
-routerCarts
-    .post('/carts', CartsController.createCarts)
-    .get('/carts', CartsController.getCarts)
-    .get('/carts/:cid', CartsController.getCartById)
-    .post('/carts/:cid', CartsController.addProductToCart)
-    .put('/carts/:cid', CartsController.removeProductFromCart)
-    .delete('/carts/:cid', CartsController.deleteCart)
-
-
+routerCarts.use('/api/carts', routerApiCarts);
+routerCarts.use('/carts', routerViewsCarts);
 
 export default routerCarts;

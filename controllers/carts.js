@@ -23,7 +23,8 @@ class CartsController {
     }
   //AGREGO UN PRODUCTO EN UN CARRITO EN ESPECIFICO: PASA POR BODY SOLO EL PID Y CID
     static async addProductToCart(req, res) {
-      const { pid, cid } = req.body;
+      const { pid} = req.body;
+      const cid = req.params.cid;
   
       try {
         const cart = await cartsModel.findById(cid).populate("products.product");

@@ -1,8 +1,10 @@
 import mongoose from "mongoose";
+import dotenv from 'dotenv';
 
+dotenv.config();
 export const init = async () =>  {
     try {
-        const URI = 'mongodb+srv://cristianalejandroheredia:aleh1971@cluster0.qtpeto6.mongodb.net/ecommerce?retryWrites=true&w=majority';
+        const URI = process.env.MONGO_URI;
         await mongoose.connect(URI);
         console.log('Database Connected');
     } catch (error) {
