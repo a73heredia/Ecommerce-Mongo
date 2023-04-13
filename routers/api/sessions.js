@@ -50,8 +50,8 @@ router.post('/register', async(req, res) => {
             age,
             password
         })
-        res.status(201).json(user);
-    
+        //res.status(201).json(user);
+        res.redirect('/login')
     } catch (error) {
         res.status(400).json({message: 'Correo Duplicado'});        
     }
